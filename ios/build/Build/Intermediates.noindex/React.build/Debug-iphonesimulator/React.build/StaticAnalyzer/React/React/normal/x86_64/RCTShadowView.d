@@ -1,0 +1,28 @@
+dependencies: \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTShadowView.m \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTShadowView.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTLayout.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Modules/RCTI18nUtil.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/RCTShadowView+Layout.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/UIView+Private.h \
+  /Users/mohamedhafiz/react_native/dish-reviews/node_modules/react-native/React/Views/UIView+React.h
