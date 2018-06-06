@@ -27,6 +27,7 @@ class ReviewInput extends Component {
             placeholder="Enter review here...(max 300 words)"
             editable={true}
             multiline={true}
+            // numberOfLines={1}
             maxLength={300}
           />
         </View>
@@ -38,7 +39,7 @@ class ReviewInput extends Component {
 
 const styles = StyleSheet.create({
   textInputContainer: {
-    height: 170,
+    height: 130,
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 5,
