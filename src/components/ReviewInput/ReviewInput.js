@@ -22,12 +22,10 @@ class ReviewInput extends Component {
       <View style={styles.container}>
         <View style={styles.textInputContainer}>
           <TextInput
-            value={this.value}
             onChangeText={this.reviewChangeHandler}
             placeholder="Enter review here...(max 300 words)"
             editable={true}
             multiline={true}
-            // numberOfLines={1}
             maxLength={300}
           />
         </View>
@@ -47,7 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   container: {
-    padding: 50,
+    padding: 30,
     width: "100%"
   }
 });

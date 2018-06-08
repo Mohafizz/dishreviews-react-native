@@ -7,6 +7,7 @@ const DishDetail = props => {
   if (props.selectedDish) {
     modalContent = (
       <View>
+        <Text style={styles.textID}>ID:123456</Text>
         <Image style={styles.dishImage} source={props.selectedDish.image} />
         <Text style={styles.reviewLayout}>{props.selectedDish.review}</Text>
       </View>
@@ -16,8 +17,8 @@ const DishDetail = props => {
     <Modal visible={props.selectedDish !== null} animationType="slide">
       <View style={styles.modalContainer}>{modalContent}</View>
       <View>
-        <Button title="Delete" color="red" />
-        <Button title="Close" />
+        <Button title="Delete" color="red" onPress={props.onItemDeleted} />
+        <Button title="Close" onPress={props.onModalClosed} />
       </View>
     </Modal>
   );
@@ -37,6 +38,11 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     fontWeight: "600",
     color: "gray"
+  },
+  textID: {
+    fontSize: 12,
+    fontWeight: "bold",
+    paddingBottom: 5
   }
 });
 

@@ -33,10 +33,31 @@ export default class App extends Component {
     });
   };
 
+  dishDeletedHandler = () => {
+    this.setState(prevState => {
+      return {
+        reviews: prevState.reviews.filter(review => {
+          return review.key !== prevState.selectedDish.key;
+        }),
+        selectedDish: null
+      };
+    });
+  };
+
+  modalClosedHandler = () => {
+    this.setState({
+      selectedDish: null
+    });
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <DishDetail selectedDish={this.state.selectedDish} />
+        <DishDetail
+          selectedDish={this.state.selectedDish}
+          onItemDeleted={this.dishDeletedHandler}
+          onModalClosed={this.modalClosedHandler}
+        />
         <ReviewInput onAddReview={this.onAddReviewHandler} />
         <ReviewItem
           reviews={this.state.reviews}

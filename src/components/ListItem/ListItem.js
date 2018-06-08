@@ -9,7 +9,10 @@ const ListItem = props => (
         style={styles.dishImage}
         source={props.dishImage}
       />
-      <Text>{props.reviewItem}</Text>
+      <View style={styles.textLayout}>
+        <Text style={styles.textID}>ID:123456</Text>
+        <Text style={styles.textBody}>{props.reviewItem}</Text>
+      </View>
     </View>
   </TouchableOpacity>
 );
@@ -26,6 +29,21 @@ const styles = StyleSheet.create({
     marginRight: 10,
     height: 50,
     width: 50
+  },
+  textLayout: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "flex-start",
+    padding: 5
+  },
+  textID: {
+    fontSize: 12,
+    fontWeight: "bold",
+    paddingBottom: 5
+  },
+  textBody: {
+    fontSize: 12,
+    fontWeight: "100"
   }
 });
 
