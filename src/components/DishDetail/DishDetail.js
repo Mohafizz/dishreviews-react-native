@@ -21,7 +21,14 @@ const DishDetail = props => {
           <Button
             title="Add to collection"
             color="green"
-            onPress={props.onModalClosed}
+            onPress={props.onAddToCollection}
+          />
+        </View>
+        <View style={styles.newCollectionBtn}>
+          <Button
+            title="Create new collection"
+            color="coral"
+            onPress={props.onCreateNewCollection}
           />
         </View>
       </View>
@@ -56,7 +63,12 @@ const styles = StyleSheet.create({
     paddingBottom: 5
   },
   addCollectionBtn: {
-    backgroundColor: "beige"
+    backgroundColor: "beige",
+    marginBottom: 20
+  },
+  newCollectionBtn: {
+    backgroundColor: "antiquewhite",
+    marginBottom: 20
   },
   buttonLayout: {
     flex: 1,

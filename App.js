@@ -53,6 +53,14 @@ export default class App extends Component {
     });
   };
 
+  navigateToAddCollection = () => {
+    alert("Should got to add to an existing collection");
+  };
+
+  navigateToNewCollection = () => {
+    alert("Should got to add new collection");
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -61,6 +69,8 @@ export default class App extends Component {
           selectedDish={this.state.selectedDish}
           onItemDeleted={this.dishDeletedHandler}
           onModalClosed={this.modalClosedHandler}
+          onAddToCollection={this.navigateToAddCollection}
+          onCreateNewCollection={this.navigateToNewCollection}
         />
         <ReviewInput onAddReview={this.onAddReviewHandler} />
         <ReviewItem
