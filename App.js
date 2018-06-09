@@ -4,10 +4,11 @@ import ReviewInput from "./src/components/ReviewInput/ReviewInput";
 import ReviewItem from "./src/components/ReviewItem/ReviewItem";
 import dishImage from "./src/assets/salmon-dish-food-meal-46239.jpeg";
 import DishDetail from "./src/components/DishDetail/DishDetail";
+import reviews from "./src/seedData/seedData";
 
 export default class App extends Component {
   state = {
-    reviews: [],
+    reviews: reviews,
     selectedDish: null
   };
 
@@ -15,7 +16,9 @@ export default class App extends Component {
     this.setState(prevState => {
       return {
         reviews: prevState.reviews.concat({
-          key: new Date().valueOf(),
+          key: Math.random()
+            .toString(36)
+            .substr(2, 9),
           review: reviews,
           image: dishImage
         })
@@ -53,6 +56,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        {console.log("here", reviews)}
         <DishDetail
           selectedDish={this.state.selectedDish}
           onItemDeleted={this.dishDeletedHandler}
