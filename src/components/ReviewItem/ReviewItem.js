@@ -9,6 +9,7 @@ const ReviewItem = props => {
       data={props.reviews}
       renderItem={info => (
         <ListItem
+          categoryID={info.item.key}
           reviewItem={info.item.review}
           dishImage={info.item.image}
           onItemPressed={() => props.onItemSelected(info.item.key)}
@@ -20,7 +21,7 @@ const ReviewItem = props => {
 
 const styles = StyleSheet.create({
   listReviewContainer: {
-    width: "90%"
+    width: "85%"
   }
 });
 

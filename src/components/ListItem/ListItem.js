@@ -10,7 +10,7 @@ const ListItem = props => (
         source={props.dishImage}
       />
       <View style={styles.textLayout}>
-        <Text style={styles.textID}>ID:123456</Text>
+        <Text style={styles.textID}>UID: {props.categoryID}</Text>
         <Text style={styles.textBody}>{props.reviewItem}</Text>
       </View>
     </View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     padding: 5
   },
   textID: {
-    fontSize: 12,
+    fontSize: 8,
     fontWeight: "bold",
     paddingBottom: 5
   },

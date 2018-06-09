@@ -7,7 +7,7 @@ const DishDetail = props => {
   if (props.selectedDish) {
     modalContent = (
       <View>
-        <Text style={styles.textID}>ID:123456</Text>
+        <Text style={styles.textID}>UID: {props.selectedDish.key}</Text>
         <Image style={styles.dishImage} source={props.selectedDish.image} />
         <Text style={styles.reviewLayout}>{props.selectedDish.review}</Text>
       </View>
@@ -15,8 +15,18 @@ const DishDetail = props => {
   }
   return (
     <Modal visible={props.selectedDish !== null} animationType="slide">
-      <View style={styles.modalContainer}>{modalContent}</View>
-      <View>
+      <View style={styles.modalContainer}>
+        {modalContent}
+        <View style={styles.addCollectionBtn}>
+          <Button
+            title="Add to collection"
+            color="green"
+            onPress={props.onModalClosed}
+          />
+        </View>
+      </View>
+
+      <View style={styles.buttonLayout}>
         <Button title="Delete" color="red" onPress={props.onItemDeleted} />
         <Button title="Close" onPress={props.onModalClosed} />
       </View>
@@ -37,12 +47,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontStyle: "italic",
     fontWeight: "600",
-    color: "gray"
+    color: "gray",
+    marginBottom: 20
   },
   textID: {
     fontSize: 12,
     fontWeight: "bold",
     paddingBottom: 5
+  },
+  addCollectionBtn: {
+    backgroundColor: "beige"
+  },
+  buttonLayout: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "space-around",
+    marginBottom: 20
   }
 });
 

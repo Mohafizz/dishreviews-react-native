@@ -15,7 +15,7 @@ export default class App extends Component {
     this.setState(prevState => {
       return {
         reviews: prevState.reviews.concat({
-          key: Math.random(),
+          key: new Date().valueOf(),
           review: reviews,
           image: dishImage
         })
@@ -70,6 +70,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start"
