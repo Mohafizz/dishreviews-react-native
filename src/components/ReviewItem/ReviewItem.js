@@ -21,7 +21,7 @@ const ReviewItem = props => {
 
 const styles = StyleSheet.create({
   listReviewContainer: {
-    width: "85%"
+    width: "95%"
   }
 });
 

@@ -7,8 +7,8 @@ const DishDetail = props => {
   if (props.selectedDish) {
     modalContent = (
       <View>
-        <Text style={styles.textID}>UID: {props.selectedDish.key}</Text>
         <Image style={styles.dishImage} source={props.selectedDish.image} />
+        <Text style={styles.textID}>UID: {props.selectedDish.key}</Text>
         <Text style={styles.reviewLayout}>{props.selectedDish.review}</Text>
       </View>
     );
@@ -43,14 +43,19 @@ const DishDetail = props => {
 
 const styles = StyleSheet.create({
   modalContainer: {
-    margin: 22
+    margin: 10,
+    marginTop: 22
   },
   dishImage: {
     height: 200,
     width: "100%",
-    marginBottom: 20
+    marginBottom: 5
   },
   reviewLayout: {
+    padding: 10,
+    borderWidth: 0.5,
+    borderColor: "gray",
+    borderRadius: 3,
     fontSize: 16,
     fontStyle: "italic",
     fontWeight: "600",
@@ -60,22 +65,30 @@ const styles = StyleSheet.create({
   textID: {
     fontSize: 12,
     fontWeight: "bold",
-    paddingBottom: 5
+    paddingBottom: 10
   },
   addCollectionBtn: {
     backgroundColor: "beige",
-    marginBottom: 20
+    marginBottom: 20,
+    borderRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 1
   },
   newCollectionBtn: {
     backgroundColor: "antiquewhite",
-    marginBottom: 20
+    marginBottom: 20,
+    borderRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 1
   },
   buttonLayout: {
     flex: 1,
     flexDirection: "row",
     alignItems: "flex-end",
-    justifyContent: "space-around",
-    marginBottom: 20
+    paddingBottom: 15,
+    justifyContent: "space-around"
   }
 });
 

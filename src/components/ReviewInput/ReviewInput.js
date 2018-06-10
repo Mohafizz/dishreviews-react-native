@@ -37,7 +37,7 @@ class ReviewInput extends Component {
 
 const styles = StyleSheet.create({
   textInputContainer: {
-    height: 130,
+    height: 120,
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 5,
@@ -45,7 +45,10 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   container: {
-    padding: 20,
+    paddingTop: 15,
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginBottom: 10,
     width: "100%"
   }
 });
