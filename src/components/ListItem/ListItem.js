@@ -20,7 +20,7 @@ const ListItem = props => (
 const styles = StyleSheet.create({
   listReviewContainer: {
     padding: 10,
-    marginBottom: 10,
+    marginBottom: 20,
     backgroundColor: "#eee",
     flexDirection: "row",
     alignItems: "center"

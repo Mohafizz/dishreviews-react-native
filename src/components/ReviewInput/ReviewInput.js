@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   container: {
-    padding: 30,
+    padding: 20,
     width: "100%"
   }
 });

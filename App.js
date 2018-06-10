@@ -64,20 +64,20 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {console.log("here", reviews)}
-        <DishDetail
-          selectedDish={this.state.selectedDish}
-          onItemDeleted={this.dishDeletedHandler}
-          onModalClosed={this.modalClosedHandler}
-          onAddToCollection={this.navigateToAddCollection}
-          onCreateNewCollection={this.navigateToNewCollection}
-        />
-        <ReviewInput onAddReview={this.onAddReviewHandler} />
-        <ReviewItem
-          reviews={this.state.reviews}
-          onItemSelected={this.itemSelectedHandler}
-        />
-      </View>
+          <DishDetail
+            selectedDish={this.state.selectedDish}
+            onItemDeleted={this.dishDeletedHandler}
+            onModalClosed={this.modalClosedHandler}
+            onAddToCollection={this.navigateToAddCollection}
+            onCreateNewCollection={this.navigateToNewCollection}
+          />
+          <ReviewInput onAddReview={this.onAddReviewHandler} />
+          <ReviewItem
+            reviews={this.state.reviews}
+            onItemSelected={this.itemSelectedHandler}
+          />
+        </View>
+        
     );
   }
 }
