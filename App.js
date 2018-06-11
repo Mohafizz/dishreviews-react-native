@@ -5,6 +5,7 @@ import ReviewItem from "./src/components/ReviewItem/ReviewItem";
 import dishImage from "./src/assets/salmon-dish-food-meal-46239.jpeg";
 import DishDetail from "./src/components/DishDetail/DishDetail";
 import reviews from "./src/seedData/seedData";
+import { Actions } from "react-native-router-flux";
 
 export default class App extends Component {
   state = {
@@ -54,30 +55,27 @@ export default class App extends Component {
   };
 
   navigateToAddCollection = () => {
-    alert("Should got to add to an existing collection");
-  };
-
-  navigateToNewCollection = () => {
-    alert("Should got to add new collection");
+    Actions.collectionsPage();
+    this.setState({
+      selectedDish: null
+    });
   };
 
   render() {
     return (
       <View style={styles.container}>
-          <DishDetail
-            selectedDish={this.state.selectedDish}
-            onItemDeleted={this.dishDeletedHandler}
-            onModalClosed={this.modalClosedHandler}
-            onAddToCollection={this.navigateToAddCollection}
-            onCreateNewCollection={this.navigateToNewCollection}
-          />
-          <ReviewInput onAddReview={this.onAddReviewHandler} />
-          <ReviewItem
-            reviews={this.state.reviews}
-            onItemSelected={this.itemSelectedHandler}
-          />
-        </View>
-        
+        <DishDetail
+          selectedDish={this.state.selectedDish}
+          onItemDeleted={this.dishDeletedHandler}
+          onModalClosed={this.modalClosedHandler}
+          onAddToCollection={this.navigateToAddCollection}
+        />
+        <ReviewInput onAddReview={this.onAddReviewHandler} />
+        <ReviewItem
+          reviews={this.state.reviews}
+          onItemSelected={this.itemSelectedHandler}
+        />
+      </View>
     );
   }
 }

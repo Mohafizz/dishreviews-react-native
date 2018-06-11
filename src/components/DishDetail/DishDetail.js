@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, View, Image, Text, Button, StyleSheet } from "react-native";
 
+
 const DishDetail = props => {
   let modalContent = null;
 
@@ -15,24 +16,19 @@ const DishDetail = props => {
   }
   return (
     <Modal visible={props.selectedDish !== null} animationType="slide">
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleID}>Review Details</Text>
+      </View>
       <View style={styles.modalContainer}>
         {modalContent}
         <View style={styles.addCollectionBtn}>
           <Button
             title="Add to collection"
-            color="green"
+            color="coral"
             onPress={props.onAddToCollection}
           />
         </View>
-        <View style={styles.newCollectionBtn}>
-          <Button
-            title="Create new collection"
-            color="coral"
-            onPress={props.onCreateNewCollection}
-          />
-        </View>
       </View>
-
       <View style={styles.buttonLayout}>
         <Button title="Delete" color="red" onPress={props.onItemDeleted} />
         <Button title="Close" onPress={props.onModalClosed} />
@@ -42,40 +38,42 @@ const DishDetail = props => {
 };
 
 const styles = StyleSheet.create({
+  titleContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#F8F8F8",
+    height: 65,
+    paddingTop: 15,
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 5
+  },
+  titleID: {
+    fontSize: 17,
+    fontWeight: "700"
+  },
   modalContainer: {
     margin: 10,
-    marginTop: 22
+    marginTop: 15
   },
   dishImage: {
     height: 200,
     width: "100%",
-    marginBottom: 5
+    marginBottom: 10
   },
   reviewLayout: {
     padding: 10,
-    borderWidth: 0.5,
-    borderColor: "gray",
-    borderRadius: 3,
-    fontSize: 16,
-    fontStyle: "italic",
-    fontWeight: "600",
-    color: "gray",
+    fontSize: 15,
+    fontWeight: "200",
+    color: "darkslategrey",
     marginBottom: 20
   },
   textID: {
     fontSize: 12,
     fontWeight: "bold",
-    paddingBottom: 10
+    color: "green",
+    paddingBottom: 15
   },
   addCollectionBtn: {
-    backgroundColor: "beige",
-    marginBottom: 20,
-    borderRadius: 5,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 1
-  },
-  newCollectionBtn: {
     backgroundColor: "antiquewhite",
     marginBottom: 20,
     borderRadius: 5,
