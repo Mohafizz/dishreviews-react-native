@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal, View, Image, Text, Button, StyleSheet } from "react-native";
 
-
 const DishDetail = props => {
   let modalContent = null;
 
@@ -25,7 +24,7 @@ const DishDetail = props => {
           <Button
             title="Add to collection"
             color="coral"
-            onPress={props.onAddToCollection}
+            onPress={() => props.navigateToCollection(props.selectedDish.key)}
           />
         </View>
       </View>

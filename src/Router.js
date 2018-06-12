@@ -10,10 +10,6 @@ const RouterComponent = () => {
         <Scene key="main" component={App} title="Dish Reviews" initial />
         <Scene
           leftTitle="Back"
-          //   rightTitle="Add New"
-          //   onRight={() => {
-          //     console.log("right!");
-          //   }}
           key="collectionsPage"
           component={Collections}
           title="Collections"
