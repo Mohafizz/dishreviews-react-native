@@ -12,7 +12,7 @@ class ReviewInput extends Component {
 
   addInputHandler = () => {
     if (this.state.review.trim() === "") {
-      return;
+      return alert("Please input your review");
     }
     this.props.onAddReview(this.state.review);
   };
@@ -23,13 +23,15 @@ class ReviewInput extends Component {
         <View style={styles.textInputContainer}>
           <TextInput
             onChangeText={this.reviewChangeHandler}
-            placeholder="Enter review here...(max 300 words)"
+            placeholder="Please enter your review here...(max 300 words)"
             editable={true}
             multiline={true}
             maxLength={300}
           />
         </View>
-        <Button title="Add" onPress={this.addInputHandler} />
+        <View style={styles.addReviewBtn}>
+          <Button title="Add" color="coral" onPress={this.addInputHandler} />
+        </View>
       </View>
     );
   }
@@ -42,14 +44,23 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     borderRadius: 5,
     borderWidth: 0.5,
-    marginBottom: 10
+    marginBottom: 20
   },
   container: {
     paddingTop: 15,
     paddingLeft: 10,
     paddingRight: 10,
-    marginBottom: 10,
     width: "100%"
+  },
+  addReviewBtn: {
+    backgroundColor: "antiquewhite",
+    marginBottom: 20,
+    borderRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
+    alignSelf: "center",
+    width: "50%"
   }
 });
 

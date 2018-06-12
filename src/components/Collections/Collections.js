@@ -20,7 +20,7 @@ class Collections extends Component {
 
   addNewCollection = collection => {
     if (this.state.collection.trim() === "") {
-      return;
+      return alert("Please input your collection");
     }
     {
       let selectedData = {
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 1,
     alignSelf: "center",
-    width: "90%"
+    width: "50%"
   },
   addContainer: {
     backgroundColor: "#fff",

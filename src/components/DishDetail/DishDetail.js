@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8F8F8",
     height: 65,
     paddingTop: 15,
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 5
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 10
   },
   titleID: {
     fontSize: 17,
@@ -52,12 +52,13 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     margin: 10,
-    marginTop: 15
+    marginTop: 0.5
   },
   dishImage: {
-    height: 200,
-    width: "100%",
-    marginBottom: 10
+    height: 210,
+    width: "110%",
+    marginBottom: 10,
+    alignSelf: "center"
   },
   reviewLayout: {
     padding: 10,
@@ -78,7 +79,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
-    shadowRadius: 1
+    shadowRadius: 1,
+    width: "50%",
+    alignSelf: "center"
   },
   buttonLayout: {
     flex: 1,
