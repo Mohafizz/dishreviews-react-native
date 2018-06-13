@@ -1,7 +1,8 @@
 import React from "react";
 import { Scene, Router } from "react-native-router-flux";
 import App from "../App";
-import Collections from "./components/Collections/Collections";
+import Collection from "./components/Collection/Collection";
+import CollectionsList from "./components/CollectionsList/CollectionsList";
 
 const RouterComponent = () => {
   return (
@@ -10,9 +11,15 @@ const RouterComponent = () => {
         <Scene key="main" component={App} title="Dish Reviews" initial />
         <Scene
           leftTitle="Back"
-          key="collectionsPage"
-          component={Collections}
-          title="Collections"
+          key="collectionPage"
+          component={Collection}
+          title="Collection"
+        />
+        <Scene
+          leftTitle="Back"
+          key="collectionsList"
+          component={CollectionsList}
+          title="Collections List"
         />
       </Scene>
     </Router>

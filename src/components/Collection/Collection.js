@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Actions } from "react-native-router-flux";
 
-class Collections extends Component {
+class Collection extends Component {
   state = {
     collection: "",
     button: false
@@ -130,4 +130,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Collections;
+export default Collection;

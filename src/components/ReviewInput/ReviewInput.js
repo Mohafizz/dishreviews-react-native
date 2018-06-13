@@ -8,7 +8,6 @@ class ReviewInput extends Component {
 
   reviewChangeHandler = value => {
     this.setState({ review: value });
-    // this.value = "";
   };
 
   addInputHandler = () => {

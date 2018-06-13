@@ -6,7 +6,7 @@ import dishImage from "./src/assets/salmon-dish-food-meal-46239.jpeg";
 import DishDetail from "./src/components/DishDetail/DishDetail";
 import reviews from "./src/seedData/seedData";
 import { Actions } from "react-native-router-flux";
-import Collections from "./src/components/Collections/Collections";
+import Collection from "./src/components/Collection/Collection";
 
 export default class App extends Component {
   state = {
@@ -66,34 +66,40 @@ export default class App extends Component {
     this.setState({
       selectedDish: null
     });
-    Actions.collectionsPage(key);
+    Actions.collectionPage(key);
   };
 
   componentWillReceiveProps = key => {
     this.setState(prevState => {
       return {
         reviews: prevState.reviews.map(review => {
-          console.log(review, key.selectedKey);
           if (review.key === key.selectedKey) {
             review.collection = key.collectionName;
           }
-          console.log(review);
           return review;
         })
       };
     });
   };
 
-  // onGoToCollection = key => {
-  //   this.setState(prevState => {
-  //     return {
-  //       reviews: prevState.reviews.filter(review => {
-  //         console.log(review, key.selectedKey);
-  //         return review.collection === key.collectionName;
-  //       })
-  //     };
-  //   });
-  // };
+  onGoToCollection = key => {
+    this.setState({
+      selectedDish: null
+    });
+    Actions.collectionsList({
+      collectionName: key.collection,
+      reviewLists: this.state.reviews
+    });
+    // this.setState(prevState => {
+    //   return {
+    //     reviews: prevState.reviews.filter(review => {
+    //       console.log(review.collection, key);
+    //       return review.collection === key.collection;
+    //     }),
+    //     selectedDish: null
+    //   };
+    // });
+  };
 
   render() {
     return (
@@ -102,8 +108,8 @@ export default class App extends Component {
           selectedDish={this.state.selectedDish}
           onItemDeleted={this.dishDeletedHandler}
           onModalClosed={this.modalClosedHandler}
-          collectionName={this.state.addedCollection}
-          navigateToCollection={this.navigateToAddCollection}
+          navigateToCollection={this.onGoToCollection}
+          navigateToAddCollection={this.navigateToAddCollection}
         />
         <ReviewInput onAddReview={this.onAddReviewHandler} />
         <ReviewItem

@@ -3,8 +3,10 @@ import { Modal, View, Image, Text, Button, StyleSheet } from "react-native";
 
 const DishDetail = props => {
   let modalContent = null;
-  let collectionTag = null;
+  let goToCollectionBtn = null;
+  let addtoCollectionBtn = null;
 
+  console.log(props.selectedDish);
   if (props.selectedDish) {
     modalContent = (
       <View>
@@ -15,13 +17,23 @@ const DishDetail = props => {
     );
   }
 
-  if (props.collectionName) {
-    collectionTag = (
-      <View style={styles.addCollectionBtn}>
+  if (props.selectedDish ? props.selectedDish.collection : false) {
+    goToCollectionBtn = (
+      <View style={styles.buttons}>
         <Button
           title="Go to collection"
           color="green"
-          onPress={() => props.navigateToCollection(props.selectedDish.key)}
+          onPress={() => props.navigateToCollection(props.selectedDish)}
+        />
+      </View>
+    );
+  } else {
+    addtoCollectionBtn = (
+      <View style={styles.buttons}>
+        <Button
+          title="Add to collection"
+          color="coral"
+          onPress={() => props.navigateToAddCollection(props.selectedDish.key)}
         />
       </View>
     );
@@ -33,14 +45,8 @@ const DishDetail = props => {
       </View>
       <View style={styles.modalContainer}>
         {modalContent}
-        <View style={styles.addCollectionBtn}>
-          <Button
-            title="Add to collection"
-            color="coral"
-            onPress={() => props.navigateToCollection(props.selectedDish.key)}
-          />
-        </View>
-        {collectionTag}
+        {addtoCollectionBtn}
+        {goToCollectionBtn}
       </View>
       <View style={styles.buttonLayout}>
         <Button title="Delete" color="red" onPress={props.onItemDeleted} />
@@ -85,7 +91,7 @@ const styles = StyleSheet.create({
     color: "green",
     paddingBottom: 15
   },
-  addCollectionBtn: {
+  buttons: {
     backgroundColor: "antiquewhite",
     marginBottom: 20,
     borderRadius: 5,
