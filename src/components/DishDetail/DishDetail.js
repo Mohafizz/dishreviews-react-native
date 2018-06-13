@@ -3,6 +3,7 @@ import { Modal, View, Image, Text, Button, StyleSheet } from "react-native";
 
 const DishDetail = props => {
   let modalContent = null;
+  let collectionTag = null;
 
   if (props.selectedDish) {
     modalContent = (
@@ -10,6 +11,18 @@ const DishDetail = props => {
         <Image style={styles.dishImage} source={props.selectedDish.image} />
         <Text style={styles.textID}>UID: {props.selectedDish.key}</Text>
         <Text style={styles.reviewLayout}>{props.selectedDish.review}</Text>
+      </View>
+    );
+  }
+
+  if (props.collectionName) {
+    collectionTag = (
+      <View style={styles.addCollectionBtn}>
+        <Button
+          title="Go to collection"
+          color="green"
+          onPress={() => props.navigateToCollection(props.selectedDish.key)}
+        />
       </View>
     );
   }
@@ -27,6 +40,7 @@ const DishDetail = props => {
             onPress={() => props.navigateToCollection(props.selectedDish.key)}
           />
         </View>
+        {collectionTag}
       </View>
       <View style={styles.buttonLayout}>
         <Button title="Delete" color="red" onPress={props.onItemDeleted} />
@@ -42,9 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#F8F8F8",
     height: 65,
-    paddingTop: 15,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 10
+    paddingTop: 15
   },
   titleID: {
     fontSize: 17,
@@ -52,10 +64,10 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     margin: 10,
-    marginTop: 0.5
+    marginTop: 0
   },
   dishImage: {
-    height: 210,
+    height: 250,
     width: "110%",
     marginBottom: 10,
     alignSelf: "center"

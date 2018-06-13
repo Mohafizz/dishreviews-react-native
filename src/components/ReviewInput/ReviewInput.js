@@ -8,13 +8,15 @@ class ReviewInput extends Component {
 
   reviewChangeHandler = value => {
     this.setState({ review: value });
+    // this.value = "";
   };
 
   addInputHandler = () => {
     if (this.state.review.trim() === "") {
-      return alert("Please input your review");
+      return;
     }
     this.props.onAddReview(this.state.review);
+    alert(`Your review has been added!`);
   };
 
   render() {
@@ -30,7 +32,12 @@ class ReviewInput extends Component {
           />
         </View>
         <View style={styles.addReviewBtn}>
-          <Button title="Add" color="coral" onPress={this.addInputHandler} />
+          <Button
+            disabled={!this.state.review}
+            title="Add"
+            color="coral"
+            onPress={this.addInputHandler}
+          />
         </View>
       </View>
     );

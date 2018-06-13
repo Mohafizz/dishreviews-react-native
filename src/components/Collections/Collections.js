@@ -11,30 +11,34 @@ import { Actions } from "react-native-router-flux";
 
 class Collections extends Component {
   state = {
-    collection: ""
+    collection: "",
+    button: false
   };
 
   collectionChangeHandler = value => {
-    this.setState({ collection: value });
+    this.setState({ collection: value, button: false });
   };
 
   addNewCollection = collection => {
     if (this.state.collection.trim() === "") {
-      return alert("Please input your collection");
+      return alert("Please input your collection name.");
     }
     {
-      let selectedData = {
-        collectionName: this.state.collection,
-        selectedKey: this.props.data
-      };
-      Actions.replace("main", selectedData);
+      Actions.pop({
+        refresh: {
+          collectionName: this.state.collection,
+          selectedKey: this.props.data
+        }
+      });
+      alert(
+        `Your review has been added to "${this.state.collection}" collection!`
+      );
     }
   };
 
   render() {
     return (
       <View>
-        {/* {console.log(this.state.collection, this.state.key)} */}
         <View style={styles.newContainer}>
           <Text style={styles.textAddNewCollection}>Add new collection</Text>
           <TextInput
@@ -44,7 +48,12 @@ class Collections extends Component {
             onChangeText={this.collectionChangeHandler}
           />
           <View style={styles.addCollectionBtn}>
-            <Button title="Add" color="coral" onPress={this.addNewCollection} />
+            <Button
+              disabled={!!this.state.button}
+              title="Add"
+              color="coral"
+              onPress={this.addNewCollection}
+            />
           </View>
         </View>
         <View style={styles.addContainer}>
@@ -56,7 +65,7 @@ class Collections extends Component {
             itemStyle={styles.pickerItemStyle}
             selectedValue={this.state.collection}
             onValueChange={itemValue =>
-              this.setState({ collection: itemValue })
+              this.setState({ collection: itemValue, button: true })
             }
           >
             <Picker.Item label="Vegan" value="Vegan" />
@@ -65,6 +74,7 @@ class Collections extends Component {
           </Picker>
           <View style={styles.addCollectionBtn}>
             <Button
+              disabled={!this.state.button}
               title="Select"
               color="coral"
               onPress={this.addNewCollection}
