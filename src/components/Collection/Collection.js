@@ -5,7 +5,9 @@ import {
   TextInput,
   Picker,
   StyleSheet,
-  Button
+  Button,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import { Actions } from "react-native-router-flux";
 
@@ -38,50 +40,52 @@ class Collection extends Component {
 
   render() {
     return (
-      <View>
-        <View style={styles.newContainer}>
-          <Text style={styles.textAddNewCollection}>Add new collection</Text>
-          <TextInput
-            style={styles.textInputContainer}
-            label="newCollection"
-            placeholder="Enter here..."
-            onChangeText={this.collectionChangeHandler}
-          />
-          <View style={styles.addCollectionBtn}>
-            <Button
-              disabled={!!this.state.button}
-              title="Add"
-              color="coral"
-              onPress={this.addNewCollection}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View>
+          <View style={styles.newContainer}>
+            <Text style={styles.textAddNewCollection}>Add new collection</Text>
+            <TextInput
+              style={styles.textInputContainer}
+              label="newCollection"
+              placeholder="Enter here..."
+              onChangeText={this.collectionChangeHandler}
             />
+            <View style={styles.addCollectionBtn}>
+              <Button
+                disabled={!!this.state.button}
+                title="Add"
+                color="coral"
+                onPress={this.addNewCollection}
+              />
+            </View>
+          </View>
+          <View style={styles.addContainer}>
+            <Text style={styles.textAddNewCollection}>
+              Select existing collection
+            </Text>
+            <Picker
+              style={styles.pickerStyle}
+              itemStyle={styles.pickerItemStyle}
+              selectedValue={this.state.collection}
+              onValueChange={itemValue =>
+                this.setState({ collection: itemValue, button: true })
+              }
+            >
+              <Picker.Item label="Vegan" value="Vegan" />
+              <Picker.Item label="Vegetarian" value="Vegetarian" />
+              <Picker.Item label="Halal" value="Halal" />
+            </Picker>
+            <View style={styles.addCollectionBtn}>
+              <Button
+                disabled={!this.state.button}
+                title="Select"
+                color="coral"
+                onPress={this.addNewCollection}
+              />
+            </View>
           </View>
         </View>
-        <View style={styles.addContainer}>
-          <Text style={styles.textAddNewCollection}>
-            Select existing collection
-          </Text>
-          <Picker
-            style={styles.pickerStyle}
-            itemStyle={styles.pickerItemStyle}
-            selectedValue={this.state.collection}
-            onValueChange={itemValue =>
-              this.setState({ collection: itemValue, button: true })
-            }
-          >
-            <Picker.Item label="Vegan" value="Vegan" />
-            <Picker.Item label="Vegetarian" value="Vegetarian" />
-            <Picker.Item label="Halal" value="Halal" />
-          </Picker>
-          <View style={styles.addCollectionBtn}>
-            <Button
-              disabled={!this.state.button}
-              title="Select"
-              color="coral"
-              onPress={this.addNewCollection}
-            />
-          </View>
-        </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

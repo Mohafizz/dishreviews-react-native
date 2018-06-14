@@ -1,6 +1,6 @@
 let reviews = [];
 
-for (let index = 0; index < 2; index++) {
+for (let index = 0; index < 10; index++) {
   reviews.push({
     key: Math.random()
       .toString(36)

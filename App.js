@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Keyboard,
+  TouchableWithoutFeedback
+} from "react-native";
 import ReviewInput from "./src/components/ReviewInput/ReviewInput";
 import ReviewItem from "./src/components/ReviewItem/ReviewItem";
 import dishImage from "./src/assets/salmon-dish-food-meal-46239.jpeg";
@@ -90,33 +95,26 @@ export default class App extends Component {
       collectionName: key.collection,
       reviewLists: this.state.reviews
     });
-    // this.setState(prevState => {
-    //   return {
-    //     reviews: prevState.reviews.filter(review => {
-    //       console.log(review.collection, key);
-    //       return review.collection === key.collection;
-    //     }),
-    //     selectedDish: null
-    //   };
-    // });
   };
 
   render() {
     return (
-      <View style={styles.container}>
-        <DishDetail
-          selectedDish={this.state.selectedDish}
-          onItemDeleted={this.dishDeletedHandler}
-          onModalClosed={this.modalClosedHandler}
-          navigateToCollection={this.onGoToCollection}
-          navigateToAddCollection={this.navigateToAddCollection}
-        />
-        <ReviewInput onAddReview={this.onAddReviewHandler} />
-        <ReviewItem
-          reviews={this.state.reviews}
-          onItemSelected={this.itemSelectedHandler}
-        />
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <DishDetail
+            selectedDish={this.state.selectedDish}
+            onItemDeleted={this.dishDeletedHandler}
+            onModalClosed={this.modalClosedHandler}
+            navigateToCollection={this.onGoToCollection}
+            navigateToAddCollection={this.navigateToAddCollection}
+          />
+          <ReviewInput onAddReview={this.onAddReviewHandler} />
+          <ReviewItem
+            reviews={this.state.reviews}
+            onItemSelected={this.itemSelectedHandler}
+          />
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

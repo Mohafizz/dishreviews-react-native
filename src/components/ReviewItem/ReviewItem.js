@@ -4,7 +4,6 @@ import ListItem from "../ListItem/ListItem";
 
 const ReviewItem = props => {
   var renderFrom = null;
-  console.log(props.reviews, props.collections);
   if (props.reviews) {
     renderFrom = (
       <FlatList
@@ -30,9 +29,9 @@ const ReviewItem = props => {
             reviewItem={info.item.review}
             dishImage={info.item.image}
             collectionName={info.item.collection}
-            onItemPressed={alert(
-              "Viewing only, please go back to main page for details."
-            )}
+            onItemPressed={() =>
+              alert("Viewing only, please go back to main page for details.")
+            }
           />
         )}
       />
@@ -44,6 +43,7 @@ const ReviewItem = props => {
 
 const styles = StyleSheet.create({
   listReviewContainer: {
+    flex: 1,
     width: "95%"
   }
 });
